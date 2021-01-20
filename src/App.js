@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import Accordian from "./components/accordian.js";
+import Sreach from "./components/sreach.js";
 
 const items = [
   {
@@ -18,5 +19,9 @@ const items = [
 ];
 
 export default () => {
-  return <Accordian items={items} />;
+  return (
+    <div>
+      <Sreach />
+    </div>
+  );
 };
