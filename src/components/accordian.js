@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 const Accordian = ({ items }) => {
   const [numb, setNumb] = useState(null);
-
   const stuff = items.map((a, index) => {
-    const openn = () => (index === numb ? "active" : "");
-
+    const open = () => {
+      return numb === index ? "active" : "";
+    };
     return (
       <React.Fragment key={a.title}>
-        <div onClick={() => setNumb(index)} className={"title " + openn()}>
-          <i className={`dropdown icon `}></i>
+        <div onClick={() => setNumb(index)} className={"title " + open()}>
+          <i className={"dropdown icon "}></i>
           {a.title}
         </div>
-        <div className={`content  ${openn()}`}>
+        <div className={`content  ${open()}`}>
           <p>{a.content}</p>
         </div>
       </React.Fragment>
