@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 
 const Dropdown = ({ options, selected, setSelected }) => {
+  document.body.style.backgroundColor = "green;";
+
   /**
    * Component that alerts if you click outside of it
    */
@@ -13,11 +15,11 @@ const Dropdown = ({ options, selected, setSelected }) => {
       /**
        * Alert if clicked on outside of element
        */
-      function handleClickOutside(event) {
+      const handleClickOutside = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
           setActive(false);
         }
-      }
+      };
 
       // Bind the event listener
       document.addEventListener("mousedown", handleClickOutside);
@@ -44,9 +46,9 @@ const Dropdown = ({ options, selected, setSelected }) => {
   });
 
   return (
-    <div ref={wrapperRef} className="ui form">
-      <div className="field">
-        <label className="label">select color</label>
+    <div className="ui form">
+      <div ref={wrapperRef} className="field">
+        <label className="label">Select color</label>
         <div onClick={() => setActive(!active)} className={`ui selection dropdown ${active ? "visible active" : ""}`}>
           <i className="dropdown icon"></i>
 

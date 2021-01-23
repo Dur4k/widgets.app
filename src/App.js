@@ -3,6 +3,8 @@ import "./style.css";
 import Accordian from "./components/accordian.js";
 import Sreach from "./components/sreach.js";
 import Dropdown from "./components/dropdown.js";
+import Dropdown2 from "./components/dropdown2.js";
+import Translate from "./components/translate.js";
 
 const items = [
   {
@@ -20,16 +22,28 @@ const items = [
 ];
 
 const options = [
-  { label: "color Red", value: "red" },
-  { label: "color green", value: "green" },
-  { label: "color blue", value: "blue" },
+  { label: "color Red", value: "#F4869C" },
+  { label: "color green", value: "#8AFF8A" },
+  { label: "color blue", value: "#006469" },
 ];
+// function componentWillMount() {
+//   document.body.style.color = "green";
+// }
 
+// function componentWillUnmount() {
+//   document.body.style.Color = null;
+// }
 export default () => {
+  // const color = { color: selected.value };
   const [selected, setSelected] = useState(options[0]);
+  document.body.style.backgroundColor = selected.value;
   return (
     <div>
-      <Dropdown selected={selected} setSelected={setSelected} options={options} />
+      <div style={{ margin: "240px" }} className="ui segment">
+        <Dropdown selected={selected} setSelected={setSelected} options={options} />
+
+        <Translate />
+      </div>
     </div>
   );
 };
